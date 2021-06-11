@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Trader Buddy : Charts </title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm  fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon">
+
+                </span>
+            </button>
+            <a class="navbar-brand mr-auto" href="./index.html">
+                Trader Buddy
+            </a>
+            <div class="collapse navbar-collapse" id="Navbar">
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item  ">
+                        <a class="nav-link" href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./pnl.html">
+                            P/L Calc
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.binance.com/en/register?ref=C6DUSTRJ" target="_blank">
+                            Join Binance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./airdrop.html">
+                            Airdrop
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./news.html">
+                            Hot News
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./sentiment.html">
+                            Market Sentiment
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            Charts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./aboutus.html">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+    <div id="coinmarketcap-widget-marquee" coins="1,1027,825,52,2010,1839,6636,2,1958,2320,4279,1975,2469,1214,4066"
+        currency="USD" theme="dark" transparent="false" show-symbol-logo="true"></div>
+    <header class="jumbotron2">
+        <div class="container">
+            <h1>Quick Charts</h1>
+            <br>
+            <div class="row row-header">
+                <div>
+                    <h2 class="align-content">BTCUSDT : BINANCE</h2>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div id="tradingview_86e1f"></div>
+                        <div class="tradingview-widget-copyright"><a
+                                href="https://in.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener"
+                                target="_blank"></a>
+                            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                            <script type="text/javascript">
+                                new TradingView.widget(
+                                    {
+                                        "width": 1080,
+                                        "height": 720,
+                                        "symbol": "BINANCE:BTCUSDT",
+                                        "interval": "60",
+                                        "timezone": "Etc/UTC",
+                                        "theme": "dark",
+                                        "style": "1",
+                                        "locale": "in",
+                                        "toolbar_bg": "#f1f3f6",
+                                        "enable_publishing": true,
+                                        "hide_side_toolbar": false,
+                                        "allow_symbol_change": true,
+                                        "studies": [
+                                            "BB@tv-basicstudies"
+                                        ],
+                                        "container_id": "tradingview_86e1f"
+                                    }
+                                );
+                            </script>
+                        </div>
+                    </div>
+                    <br>
+                    <h2 class="align-content">XBTUSD : BITMEX</h2>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div id="tradingview_b4eae"></div>
+                        <div class="tradingview-widget-copyright"><a
+                                href="https://in.tradingview.com/symbols/XBTUSD/?exchange=BITMEX" rel="noopener"
+                                target="_blank"></a>
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                            new TradingView.widget(
+                                {
+                                    "width": 1080,
+                                    "height": 720,
+                                    "symbol": "BITMEX:XBTUSD",
+                                    "interval": "60",
+                                    "timezone": "Etc/UTC",
+                                    "theme": "dark",
+                                    "style": "1",
+                                    "locale": "in",
+                                    "toolbar_bg": "#f1f3f6",
+                                    "enable_publishing": false,
+                                    "hide_side_toolbar": false,
+                                    "allow_symbol_change": true,
+                                    "save_image": false,
+                                    "studies": [
+                                        "BB@tv-basicstudies"
+                                    ],
+                                    "container_id": "tradingview_b4eae"
+                                }
+                            );
+                        </script>
+                    </div>
+                    <br>
+                    <h2 class="align-content">BTCUSD : BYBIT</h2>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div id="tradingview_dea9e"></div>
+                        <div class="tradingview-widget-copyright"><a
+                                href="https://in.tradingview.com/symbols/BTCUSD/?exchange=BYBIT" rel="noopener"
+                                target="_blank"></a>
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                            new TradingView.widget(
+                                {
+                                    "width": 1080,
+                                    "height": 720,
+                                    "symbol": "BYBIT:BTCUSD",
+                                    "interval": "60",
+                                    "timezone": "Etc/UTC",
+                                    "theme": "dark",
+                                    "style": "1",
+                                    "locale": "in",
+                                    "toolbar_bg": "#f1f3f6",
+                                    "enable_publishing": false,
+                                    "hide_side_toolbar": false,
+                                    "allow_symbol_change": true,
+                                    "save_image": false,
+                                    "studies": [
+                                        "BB@tv-basicstudies"
+                                    ],
+                                    "container_id": "tradingview_dea9e"
+                                }
+                            );
+                        </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+                    <br>
+                    <!-- TradingView Widget END -->
+                    <h2 class="align-content">ETHUSDT : BINANCE</h2>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div id="tradingview_e8456"></div>
+                        <div class="tradingview-widget-copyright"><a
+                                href="https://in.tradingview.com/symbols/LTCUSDT/?exchange=BINANCE" rel="noopener"
+                                target="_blank"></a>
+                        </div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                            new TradingView.widget(
+                                {
+                                    "width": 1080,
+                                    "height": 720,
+                                    "symbol": "BINANCE:ETHUSDT",
+                                    "interval": "60",
+                                    "timezone": "Etc/UTC",
+                                    "theme": "dark",
+                                    "style": "1",
+                                    "locale": "in",
+                                    "toolbar_bg": "#f1f3f6",
+                                    "enable_publishing": true,
+                                    "hide_side_toolbar": false,
+                                    "allow_symbol_change": true,
+                                    "studies": [
+                                        "BB@tv-basicstudies"
+                                    ],
+                                    "container_id": "tradingview_e8456"
+                                }
+                            );
+                        </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+                    
+
+                </div>
+            </div>
+    </header>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./aboutus.html">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                        55 Crown Street<br>
+                        LONDON<br>
+                        England<br>
+                        SW10 3TQ<br>
+                        Tel.: 070 0605 0999<br>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a href="http://google.com/+">Google+</a>
+                        <a href="http://www.facebook.com/profile.php?id=">Facebook</a>
+                        <a href="http://www.linkedin.com/in/">LinkedIn</a>
+                        <a href="http://twitter.com/">Twitter</a>
+                        <a href="http://youtube.com/">YouTube</a>
+                        <a href="mailto:">Mail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright Bears Trading Group</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

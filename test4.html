@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Entry
+                </td>
+                <td>
+                    <input type="text" id="a" placeholder="Entry"> <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Exit
+                </td>
+               <td>
+                    <input type="text" id="b" placeholder="Exit"> <br>
+               </td>
+            </tr>
+            <tr>
+                <td>
+                    Leverage
+                </td>
+                <td>
+                    <input type="text" id="c" placeholder="Leverage"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Margin amount
+                </td>
+                <td>
+                    <input type="text" id="d" placeholder="Margin amount $"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" onClick="longc()" Value="Calc" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="per"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="profit"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="netamt"></p>
+                </td>
+            </tr>
+           
+        </table>
+       
+    </form>
+    <script>
+
+function longc() {
+                        entry = document.getElementById("a").value;
+                        exit = document.getElementById("b").value;
+                        lev = document.getElementById("c").value;
+                        amt = document.getElementById("d").value;
+                        total = exit - entry;
+                        liqper=100/lev;
+                        perc = ((total / entry) * 100) * lev;
+                        prof = ((perc * amt) / 100) ;
+                        liqmove=(entry*liqper)/100;
+                        longliqprice = entry*1-liqmove*1;
+                        shortliqprice = entry*1+liqmove*1;
+                        var n = perc.toFixed(2);
+                        var m = prof.toFixed(2);
+                        var o = liqmove.toFixed(5);
+                        var x = longliqprice.toFixed(5);
+                        var y = shortliqprice.toFixed(5);
+                        const neta = amt *1 + m*1;
+                        var k = neta.toFixed(2);
+                        document.getElementById("per").innerHTML = 'P/L   :    ' + n + ' %';
+                        document.getElementById("profit").innerHTML = 'Profit : $' + m;
+                        document.getElementById("netamt").innerHTML = 'Net Amount : $' + k;
+                        document.getElementById("liqm").innerHTML = 'Liquidation Move : $' + o;
+                        document.getElementById("liqlp").innerHTML = 'Long Liquidation Price : $' + x;
+                        document.getElementById("liqsp").innerHTML = 'Short Liquidation Price : $' + y;
+
+    </script>
+    <b>
+        <br>
+        <p id="per"></p>
+        <br>
+        <p id="profit"></p>
+        <br>
+        <p id="netamt"></p>
+        <br>
+        <p id="liqm"></p>
+        <br>
+        <p id="liqlp"></p>
+        <br>
+        <p id="liqsp"></p>
+    </b>
+
+</body>
+
+</html>

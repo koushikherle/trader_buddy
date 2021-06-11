@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Trader Buddy : Charts </title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm  fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon">
+
+                </span>
+            </button>
+            <a class="navbar-brand mr-auto" href="./index.html">
+                Trader Buddy
+            </a>
+            <div class="collapse navbar-collapse" id="Navbar">
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item  ">
+                        <a class="nav-link" href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./pnl.html">
+                            P/L Calc
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.binance.com/en/register?ref=C6DUSTRJ" target="_blank">
+                            Join Binance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./airdrop.html">
+                            Airdrop
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./news.html">
+                            Hot News
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./sentiment.html">
+                            Market Sentiment
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            Charts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./aboutus.html">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <br>
+        <div class="row">
+            <h1>Live Orderbook : Binance</h1>
+        </div>
+        <div class="row">
+            <input id="symbol" type="text" class="col-sm-2" placeholder="Symbol" value="BTCUSDT">
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-6" id="chartContainer1" style="height: 500px;width: 500px "></div>
+       
+            <div class="col-sm-6" id="chartContainer2" style="height: 500px;width: 500px"></div>
+        </div>
+    </div>
+<script>
+    
+    setInterval(orderBook,1000);
+    
+    function orderBook(){
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('GET','https://api.binance.com/api/v1/depth?symbol=' + document.getElementById("symbol").value + '&limit=1000',true);
+        ourRequest.onload = function(){
+            ourData = JSON.parse(ourRequest.responseText);
+            //console.log(ourData);
+            var xAsk=[],yAsk=[],xBid=[],yBid=[];
+           
+            //Collect Data for Asks
+            for(i=0;i<200;i++){
+                xAsk.push(parseFloat(ourData["asks"][i][1]));
+                yAsk.push((ourData["asks"][i][0]*1).toString() + '_');
+            }
+            
+            //Collect Data for Bids
+            for(i=200;i>=0;i--){
+                xBid.push(parseFloat(ourData["bids"][i][1]));
+                yBid.push((ourData["bids"][i][0]*1).toString() + '_');
+            }
+            
+            //Display Chart for Asks
+            var data1 = [{
+              type: 'bar',
+              x: xAsk,
+              y: yAsk,
+              marker: {
+                  color: 'rgb(160, 9, 9)',
+                 
+                  
+              },
+              orientation: 'h',
+              plot_bgcolor:"black",
+                paper_bgcolor:"#FFF3"
+            }];
+            
+            var layout1 = {
+                title: "Asks"
+            }
+            
+
+            Plotly.newPlot('chartContainer1', data1,layout1);
+            
+            //Display Chart for Bids
+            var data2 = [{
+              type: 'bar',
+              x: xBid,
+              y: yBid, 
+              marker: {
+                  color: 'rgb(3, 119, 73)'
+              },
+              orientation: 'h'
+            }];
+
+            
+            var layout2 = {
+                title: "Bids"
+            }
+            
+            Plotly.newPlot('chartContainer2', data2, layout2);
+            
+        }
+        ourRequest.send();
+        
+    }
+    
+</script>
+</html>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./aboutus.html">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                        55 Crown Street<br>
+                        LONDON<br>
+                        England<br>
+                        SW10 3TQ<br>
+                        Tel.: 070 0605 0999<br>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a href="http://google.com/+">Google+</a>
+                        <a href="http://www.facebook.com/profile.php?id=">Facebook</a>
+                        <a href="http://www.linkedin.com/in/">LinkedIn</a>
+                        <a href="http://twitter.com/">Twitter</a>
+                        <a href="http://youtube.com/">YouTube</a>
+                        <a href="mailto:">Mail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright Bears Trading Group</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
